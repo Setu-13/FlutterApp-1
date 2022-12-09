@@ -20,7 +20,14 @@ class MyApp extends StatelessWidget {
                   onPressed: null,
                   child: Text("Water"),
                 ),
-                ElevatedButton(onPressed: null, child: Text("Weight"))
+                ElevatedButton(
+                  onPressed: null,
+                  child: Text("Weight"),
+                ),
+                ElevatedButton(
+                  onPressed: null,
+                  child: Text("Fill"),
+                ),
               ],
             ))
 
