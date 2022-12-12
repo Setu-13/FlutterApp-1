@@ -5,27 +5,59 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
+  var questionIndex = 0;
+
+  void answerQuestion() {
+    setState(() {
+      questionIndex++;
+      //print(questionIndex);
+    });
+
+    print(questionIndex);
+    //print("fsa");
+  }
+
   @override
   Widget build(BuildContext context) {
+    var questions = [
+      "One",
+      "Twodeef",
+      "hewool",
+      "sfds",
+    ];
+
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
-              title: Text("Helllo"),
+              title: Text("My Fist\n Application"),
             ),
             body: Column(
               children: [
-                Text("Buttons"),
+                Text(
+                  questions[questionIndex],
+                ),
                 ElevatedButton(
-                  onPressed: null,
+                  onPressed: answerQuestion,
                   child: Text("Water"),
                 ),
                 ElevatedButton(
-                  onPressed: null,
+                  onPressed: () => print("button pressed"),
                   child: Text("Weight"),
                 ),
                 ElevatedButton(
-                  onPressed: null,
+                  onPressed: () => {
+                    print("button bla bla pressed"),
+                    print("bla labbu"),
+                  },
                   child: Text("Fill"),
                 ),
               ],
