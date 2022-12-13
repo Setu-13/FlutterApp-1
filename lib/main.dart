@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import './question.dart';
+import './answer.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,13 +29,27 @@ class _MyAppState extends State<MyApp> {
     //print("fsa");
   }
 
+  ///
+  void _answerQuestion_decr() {
+    setState(() {
+      _questionIndex--;
+      //print(questionIndex);
+    });
+
+    print(_questionIndex);
+    //print("fsa");
+  }
+
+  ///
   @override
   Widget build(BuildContext context) {
     var questions = [
+      "Dont click Minus",
       "One",
-      "Twodeef",
-      "hewool",
-      "sfds",
+      "Two",
+      "Three",
+      "Four",
+      "Dont click Plus",
     ];
 
     return MaterialApp(
@@ -50,20 +65,13 @@ class _MyAppState extends State<MyApp> {
                 Question(
                   questions[_questionIndex],
                 ),
-                ElevatedButton(
-                  onPressed: _answerQuestion,
-                  child: Text("Water"),
-                ),
+                Answer(_answerQuestion, "Plus"), //Button 1
+
+                Answer(_answerQuestion_decr, "Minus"), //Button 2
+
                 ElevatedButton(
                   onPressed: () => print("button pressed"),
-                  child: Text("Weight"),
-                ),
-                ElevatedButton(
-                  onPressed: () => {
-                    print("button bla bla pressed"),
-                    print("bla labbu"),
-                  },
-                  child: Text("Fill"),
+                  child: Text("I am Fake"),
                 ),
               ],
             ))
