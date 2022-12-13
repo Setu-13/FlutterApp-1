@@ -14,7 +14,7 @@ class Answer extends StatelessWidget {
           onPressed: setHandler,
           style: ButtonStyle(
             backgroundColor:
-                MaterialStateProperty.all(Colors.deepPurpleAccent.shade400),
+                MaterialStateProperty.all(Color.fromARGB(61, 177, 205, 214)),
           )),
     );
   }
