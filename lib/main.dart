@@ -44,12 +44,18 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var questions = [
-      "Dont click Minus",
-      "One",
-      "Two",
-      "Three",
-      "Four",
-      "Dont click Plus",
+      {
+        'questionText': 'What is you favorite color?',
+        'answers': ['Black', 'Red', 'Green', 'White'],
+      },
+      {
+        'questionText': 'What is you favorite sex Position?',
+        'answers': ['Satanding Misnnory', 'Missinory', 'Doggy', 'Oral', 'Anal'],
+      },
+      {
+        'questionText': 'What is you favorite Porn Actress?',
+        'answers': ['sunny Lone', 'Shopia Leone', 'Leah Goti', 'Little Caprie'],
+      },
     ];
 
     return MaterialApp(
@@ -63,16 +69,20 @@ class _MyAppState extends State<MyApp> {
                 //   questions[_questionIndex],
                 // ),
                 Question(
-                  questions[_questionIndex],
+                  questions[_questionIndex]['questionText'],
                 ),
-                Answer(_answerQuestion, "Plus"), //Button 1
 
-                Answer(_answerQuestion_decr, "Minus"), //Button 2
+                ...(questions[_questionIndex]['answers'] as List<String>)
+                    .map((answer) {
+                  return Answer(_answerQuestion, answer);
+                }).toList()
 
-                ElevatedButton(
-                  onPressed: () => print("button pressed"),
-                  child: Text("I am Fake"),
-                ),
+                //Answer(_answerQuestion, "Plus"), //Button 1
+                //Answer(_answerQuestion_decr, "Minus"), //Button 2
+                // ElevatedButton(
+                //   onPressed: () => print("button pressed"),
+                //   child: Text("I am Fake"),
+                // ),
               ],
             ))
 
